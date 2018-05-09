@@ -1,0 +1,24 @@
+<div class="submenu-container">
+    <div class="diag-node" #block>
+      <div class= "cell shrink" >
+        <div class="row header">
+          <div class="title">{{settingGroup.displayName}}</div>
+          <span [ngClass]="{'status-on': settingGroup.settings[0].value === 'On', 'status-off': settingGroup.settings[0].value === 'Off' }">{{ settingGroup.settings[0].value }}</span>
+        </div>
+      </div>
+      <hr class="line">
+      <div class="cell auto settings">
+        <div class="column small-10">
+          <table class="table">
+            <tr *ngFor="let setting of settingGroup.settings">
+                <td class="setting-color" *ngIf="setting.name !== 'Toggle'">{{ setting.name }}</td>
+                <td class="setting-color" *ngIf="setting.name !== 'Toggle'">{{ setting.value }}</td>
+            </tr>
+          </table>
+        </div>
+        <div class="column small-2">
+          <span class="caret right" style="zoom:1.4"></span>
+        </div>
+      </div>
+    </div>
+</div>

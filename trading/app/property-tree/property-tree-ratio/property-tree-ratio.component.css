@@ -1,0 +1,15 @@
+.group {
+    display: inline-flex;
+    width: 100%;
+}
+
+input {
+    background-color: #393939;
+    color: white;
+}
+
+input[disabled] {
+    background-color: #000000;
+    border: none;
+    color: #9B9B9B;
+}

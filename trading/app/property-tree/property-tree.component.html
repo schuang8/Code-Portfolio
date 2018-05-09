@@ -1,0 +1,73 @@
+<div class="container">
+  <h1>Assisted Trading</h1>
+  <br>
+  <form>
+    <div class="group">
+      <div class="group1">
+        <div class="form-group">
+          <label>Benchmark</label>
+          <input type="text" class="form-control" [(ngModel)]="methodsService.settings.benchmark" name="benchmark" autocomplete="off" spellcheck="false">
+        </div>
+      </div>
+      <div class="group2">
+        <div class="form-group">
+          <label>Start Value ($)</label>
+          <input type="text" class="form-control" [(ngModel)]="methodsService.settings.start_value" name="start_value" autocomplete="off">
+        </div>
+      </div>
+    </div>
+    <div class="group">
+      <div class="group1" [ngClass]="{'group6': (selectedGraph === 'Value Comparison')}">
+        <label style="display: block;">Target Stock</label>
+        <div *ngFor="let targetstock of target_stock; let i=index" class="form-group group">
+          <app-property-tree-stocks style="width: 100%;" [tstock]="target_stock" [index]="i"></app-property-tree-stocks>
+        </div>
+      </div>
+      <div class="group2" [ngClass]="{'group4': (selectedGraph === 'Value Comparison')}">
+        <label style="display: block;" [ngClass]="{'invisible': (selectedGraph === 'Value Comparison')}">Ratio</label>
+        <div *ngFor="let all of allocation; let i=index" class="form-group group">
+          <div class="form-group group group3" [ngClass]="{'group5': (selectedGraph === 'Value Comparison')}">
+            <app-property-tree-ratio style="width: 100%;" [allocation]="allocation" [index]="i" [plusFlag]="plusflag"></app-property-tree-ratio>
+          </div>
+          <div class="form-group group group4">
+            <button *ngIf="(i+1) === allocation.length" type="button" class="btn btn-default btn-sm plus" (click)="plusClick()"
+            [disabled]="plusflag">
+              <span class="glyphicon glyphicon-plus"></span>
+            </button>
+            <button *ngIf="(i+1) !== allocation.length" type="button" class="btn btn-default btn-sm minus" (click)="minusClick(i)">
+              <span class="glyphicon glyphicon-minus"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="dropdown clearfix">
+      <button class="btn btn-primary dropdown-toggle ddClass" type="button" data-toggle="dropdown">{{selectedGraph}}
+      <span class="pull-right">
+        <span class="caret"></span>
+      </span></button>
+      <ul class="dropdown-menu alignRight" style="width: 100%;">
+        <li (click)="onPortfolioVsBenchmark()"><a href="#">Portfolio/Benchmark</a></li>
+        <li (click)="onValueComparison()"><a href="#">Value Comparison</a></li>
+        <li (click)="onRuleBasedComputation()"><a href="#">Rule Based Computation</a></li>
+        <li (click)="onTreeBasedLearner()"><a href="#">Tree Base Learner</a></li>
+        <li (click)="onReinforcementLearner()"><a href="#">Reinforcement Leaner</a></li>
+      </ul>
+    </div>
+    <div>
+      <label>Time Period</label>
+      <div class="group">
+        <div class="group1">
+          <label>Start Date</label>
+          <input type="text" class="form-control" [(ngModel)]="start_date" name="start date" autocomplete="off">
+        </div>
+        <div class="group2">
+          <label>End Date</label>
+          <input type="text" class="form-control" [(ngModel)]="end_date" name="end date" autocomplete="off">
+        </div>
+      </div>
+    </div>
+    <button type="button" class="btn btn-default refresh" (click)="onSubmit()" [disabled]="callService.flag"><span class="glyphicon glyphicon-refresh" [@rotaterefresh]="callService.flag"></span></button>
+  </form>
+</div>
+<app-glviz [selectedGraph]="selectedGraph" [hidden]="first_click"></app-glviz>

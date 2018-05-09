@@ -1,0 +1,32 @@
+<div class="config-dialog" [style.height]="data.height" [style.width]="data.width" [@slideInOutAnimation]="slideWindow">
+  <div class="title-bar">
+    <div class="row align-justify">
+      <div class="columns small-10 title-column-text" #dragTitleBar>
+          <span class="title-bar-title" cdk-focus-initial>Adjustments Setup</span>
+      </div>
+      <div class="columns small-2 title-column-button shrink">
+          <button type="button" class="button-close-x" (tap)='btnClose()' tabindex="-1"></button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="selectedGroup == null" class="config-dialog-body">
+    <div class="row" style="margin-left:5px">
+        <label>Select desired signal adjustments, below. Click on adjustment block to configure.</label>
+    </div>
+    <div class="center-elements">
+      <div class="submenu">
+        <app-settings-group-tile [settingGroup]='settings[0]' (click)='configure(settings[0])'></app-settings-group-tile>
+      </div>
+      <div class="submenu">
+        <app-settings-group-tile [settingGroup]='settings[1]' (click)='configure(settings[1])'></app-settings-group-tile>
+      </div>
+      <div class="submenu">
+        <app-settings-group-tile [settingGroup]='settings[2]' (click)='configure(settings[2])'></app-settings-group-tile>
+      </div>
+      <div class="submenu">
+        <app-settings-group-tile [settingGroup]='settings[3]' (click)='configure(settings[3])'></app-settings-group-tile>
+      </div>
+    </div>
+  </div>
+  <app-setting-editor *ngIf="selectedGroup" [selectedGroup]="selectedGroup" ></app-setting-editor>
+</div>

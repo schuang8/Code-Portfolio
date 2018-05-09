@@ -1,0 +1,9 @@
+.group {
+    display: inline-flex;
+    width: 100%;
+}
+
+input {
+    background-color: #393939;
+    color: white;
+}

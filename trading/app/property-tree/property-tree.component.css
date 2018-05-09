@@ -1,0 +1,96 @@
+.group1 {
+    width: 50%;
+}
+
+.group2 {
+    width: 50%;
+}
+
+.group {
+    display: inline-flex;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.ddClass {
+    background-color: #393939 !important;
+    border: 1px solid #ccc;
+    color: white !important;
+    width: 100%;
+}
+
+.pull-right {
+    vertical-align: middle;
+}
+
+.alignRight {
+    text-align: center;
+}
+
+label {
+    color: white !important;
+    font-size: 18px;
+}
+
+h1 {
+    color: white;
+}
+
+input {
+    background-color: #393939;
+    color: white;
+}
+
+ul {
+    background-color: #393939 !important;
+}
+
+a {
+    color: white !important;
+}
+
+a:hover {
+    background-color: rgb(90, 90, 90) !important;
+}
+
+.refresh, .refresh:hover {
+    background-color: rgb(22, 238, 58) !important;
+    margin-top: 5px;
+}
+
+.glyphicon-refresh:before {
+    font-size: 24px;
+}
+
+.plus, .plus:hover {
+    background-color: rgb(22, 238, 58) !important;
+}
+
+.minus, .minus:hover {
+    background-color: rgb(238, 22, 58) !important;
+}
+
+.invisible {
+    display: none;
+}
+
+.group3 {
+    width: 94%;
+    margin: 0px;
+}
+
+.group4 {
+    width: 34px;
+    margin: 0px;
+}
+
+.group5 {
+    width: 0%;
+    margin: 0px;
+}
+
+.group6 {
+    width: 100%;
+    margin: 0px;
+}

@@ -1,0 +1,1 @@
+Front-end component of a stock market analysis tool that uses WebGL for the data visualization.

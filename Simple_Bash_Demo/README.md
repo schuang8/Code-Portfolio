@@ -1,0 +1,1 @@
+A simple bash script that allows the user the conan C++ package manager CLI to build all different binary flavors and upload it artifactory

@@ -1,0 +1,54 @@
+.config-dialog {
+    height: 651px;
+    width: 501px;
+    border: 1px solid rgba(76, 142, 255, 1);
+    background: rgba(27, 27, 31, 1);
+}
+
+.title-bar {
+    height: 32px;
+    background:  linear-gradient(90deg, rgba(42, 42, 48, 1), rgba(37, 37, 43, 1) );
+}
+
+.title-bar-title {
+    display: block;
+    padding-top: 6px;
+    padding-left: 12px;
+    font-size: 14px;
+    color: rgba(76, 142, 255, 1);
+}
+
+.title-column-text {
+    margin: 0;
+    padding: 0;
+}
+
+.title-column-button {
+    margin: 0;
+    padding: 0;
+}
+
+.config-dialog-body {
+    padding: 10px;
+}
+
+.columns {
+    padding: 0;
+}
+
+.center-elements {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    flex-direction: row;
+    height: 421px;
+}
+
+.submenu {
+    width: 250px;
+    height: 160px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
