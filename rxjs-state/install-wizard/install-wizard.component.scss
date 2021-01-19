@@ -1,0 +1,73 @@
+.overFlowable {
+    overflow: auto;
+}
+
+.horizontal-grid {
+    margin: 60px;
+    display: grid;
+    grid-template-columns: 32% 43% 25%;
+    grid-column-gap: 15px;
+    .grid1 {
+        grid-column: 1;
+        padding-top: 10px;
+    }
+
+    .grid2 {
+        grid-column: 2;
+        input {
+            border: rgb(229, 238, 255) solid 1px;
+            width: 100% !important;
+        }
+    }
+
+    .grid3 {
+        button{
+           min-width: 0 !important;
+           margin-left: 20px;
+        }
+        grid-column: 3
+    }
+}
+
+.reviewDetail-rows {
+    display: grid;
+    grid-template-rows: 10% 400px auto;
+    .header {
+        grid-row: 1;
+    }
+    .content {
+        grid-row: 2;
+        display: grid;
+        grid-template-columns: 8% auto;
+
+        .metadata {
+            padding-top: 10px;
+            grid-column: 2;
+        }
+    }
+
+    .bottom {
+        grid-row: 3;
+        display: grid;
+        grid-template-columns: 8% auto;
+        .warning-logo {
+            grid-column: 1;
+        }
+
+        .warning {
+            grid-column: 2;
+            a {
+                color: rgba(133, 194, 255, 1);
+            }
+        }
+    }
+}
+
+.install-package-row {
+    display: grid;
+    grid-row-gap: 10px;
+    grid-template-rows: 100px 20px;
+    .description {
+        grid-row: 1;
+    }
+}

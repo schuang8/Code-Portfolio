@@ -1,0 +1,7 @@
+<input #input type="text" readonly
+    [ngClass]="{'error-border': fieldState === 'error', 
+                'disabled-border': fieldState === 'disabled',
+                'required-border': fieldState === 'required',
+                'optional-border': fieldState === 'optional' }"
+    [(ngModel)]="value" 
+    [disabled]="fieldState === 'disabled'">

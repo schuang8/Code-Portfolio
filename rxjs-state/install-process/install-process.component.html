@@ -1,0 +1,57 @@
+<ng-container [ngSwitch]="processState">
+  <ng-container *ngSwitchCase="installProcessState.Installing">
+    <div class="body">
+      <div class="first">
+        <label>Please wait while </label>
+        <label>{{installInfo?.displayName}}</label>
+        <label> installs on your computer. </label>
+      </div>
+      <mat-progress-bar class="second"></mat-progress-bar>
+      <label class="third">Installing</label>
+    </div>
+  </ng-container>
+  <ng-container *ngSwitchCase="installProcessState.Finished">
+    <div class="body">
+      <label>The Installation Wizard has successfully installed </label>
+      <label>{{installInfo?.displayName}}</label>
+      <br>
+      <br>
+      <label>Installation complete!</label>
+    </div>
+  </ng-container>
+  <ng-container *ngSwitchCase="installProcessState.Cancelling">
+    <div class="body">
+      <div class="first">
+        <label>Cancelling Installation</label>
+      </div>
+    </div>
+    <mat-progress-bar class="second"></mat-progress-bar>
+  </ng-container>
+  <ng-container *ngSwitchCase="installProcessState.Cancelled">
+    <div class="body">
+      <label>The </label>
+      <label>{{installInfo?.displayName}}</label>
+      <label> Installation has been successfully cancelled.</label>
+      <br>
+      <br>
+      <label>You can rerun the installation wizard later.</label>
+    </div>
+  </ng-container>
+  <ng-container *ngSwitchCase="installProcessState.Failed">
+    <div class="body">
+      <label>The Installation Wizard is having issue installing </label>
+      <label>{{installInfo?.displayName}}</label>
+      <br>
+      <br>
+      <label>Please check notification dialog for more detail!</label>
+    </div>
+  </ng-container>
+</ng-container>
+<span>
+  <button (click)="onFinished($event)">
+    <label>Ok</label>
+  </button>
+  <button (click)="onClose()">
+    <label>Cancel</label>
+  </button>
+</span>

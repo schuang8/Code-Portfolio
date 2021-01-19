@@ -1,0 +1,9 @@
+<input #input type="text" 
+    [(ngModel)]="value"
+    [ngClass]="{'error-border': fieldState === 'error', 
+                'disabled-border': fieldState === 'disabled',
+                'required-border': fieldState === 'required',
+                'optional-border': fieldState === 'optional' }"
+    (keyup)="valueChange($event)" 
+    cdkTrapFocus cdkTrapFocusAutoCapture onfocus="this.select()"
+    [disabled]="fieldState === 'disabled'">

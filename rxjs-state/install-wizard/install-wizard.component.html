@@ -1,0 +1,92 @@
+<div class="overFlowable">
+  <mat-vertical-stepper linear>
+    <mat-step [stepControl]="selectPackageGroup" label="Select Package">
+      <form [formGroup]="selectPackageGroup">
+        <label>Select Package
+          <br>
+          <br>
+          To install, you will need to select the downloaded package.
+          <br>
+          <br>
+          Use the button below to specify the location of the installation package.
+        </label>
+        <div class="horizontal-grid">
+          <label class="grid1">Installation Package: </label>
+          <div class="grid2">
+            <input id="pathToFile" type="text" placeholder="No file selected" [readonly]="true">
+          </div>
+          <div class="grid3">
+            <button cdkFocusInitial (click)="onClick()">
+              <label>...</label>
+            </button>
+            <input id="fileInput" type="file" style="display: none;" (change)="onChange()"
+              formControlName="packageName">
+          </div>
+        </div>
+        <div *ngIf="!propertiesReady">
+          <mat-progress-bar></mat-progress-bar>
+          <label>Getting the properties data....</label>
+        </div>
+        <div *ngIf="invalidFile" id="invalidInfo" class="grid2">The selected file is not a valid package. Please select
+          another file...</div>
+        <div *ngIf="brokenPackage" id="brokenInfo" class="grid2">The selected package is not supported by this system.
+          Please download the correct package...</div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="reviewDetailsGroup" label="Review Details">
+      <div class="reviewDetail-rows">
+        <label class="header">
+          Review Details<br>
+        </label>
+        <div class="content">
+          <div class="metadata">
+            <label class="highlight-text">{{installInfo?.displayName}}</label>
+            <br>
+            <br>
+            <label> version </label>
+            <label>{{installInfo?.version}}</label>
+            <br>
+            <br>
+            <label *ngIf="installInfo?.description !== ''"> Description </label>
+            <br>
+            <label>{{installInfo?.description}}</label>
+          </div>
+        </div>
+        <div class="bottom" *ngIf="!compatible">
+          <div class="warning">
+            <label>{{installInfo?.displayName}}</label>
+            <label> (version </label>
+            <label>{{installInfo?.version}}) requires version </label>
+            <label>{{installInfo?.minimumVersion}}</label>
+            <label> or higher</label>
+          </div>
+        </div>
+      </div>
+    </mat-step>
+    <mat-step [stepControl]="installPackageGroup" label="Install Package(s)">
+      <form [formGroup]="installPackageGroup">
+        <div class="install-package-row">
+          <div class="description">
+            <label>
+              Install Package(s)
+            </label>
+            <br>
+            <br>
+            <label>Package: </label>
+            <label>{{installInfo?.displayName}}</label>
+            <br>
+            <br>
+            <label>Size: </label>
+            <label>{{installInfo?.packageSize}}</label>
+          </div>
+        </div>
+      </form>
+    </mat-step>
+  </mat-vertical-stepper>
+  <button (click)="onFinished($event)">
+    <label>Ok</label>
+  </button>
+  <button (click)="onCancel()">
+    <label>Cancel</label>
+  </button>
+</div>

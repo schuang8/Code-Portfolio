@@ -1,0 +1,27 @@
+<div class="agGridExampleContainer">
+  <form [formGroup]="formGroup" novalidate>
+    <div class="agGridExampleData">
+      <label class="agGridExampleItem1 large">Example Ag Grid Implementation wtih Custom Renderer and Editor cells</label>
+    </div>
+
+    <div class="data-grid-container">
+      <div class="toolbar">
+        <input type="text" placeholder="Filter..." [formControl]="filterControl">
+        <button (click)="addNew()">
+          <label>Add</label>
+        </button>
+        <button (click)="deleteEntry()" [disabled]="isActionDisabled">
+          <label>Delete</label>
+        </button>
+        <input type="checkbox" (change)="showPassword($event)">
+        <label>Show All Passwords</label>
+      </div>
+
+      <ag-grid-angular  [columnDefs]="columns"
+                        (selectionChanged)="onSelectionChanged($event)"
+                        [gridOptions]="gridOptions"
+                        (cellValueChanged)="onCellValueChanged($event)">
+      </ag-grid-angular>
+    </div>
+  </form>
+</div>

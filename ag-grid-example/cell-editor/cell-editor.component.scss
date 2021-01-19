@@ -1,0 +1,24 @@
+.error-border {
+    width: 100%;
+    opacity: 1 !important;
+    cursor: initial;    
+}
+
+.disabled-border {
+    width: 100%;
+    border: none;
+    pointer-events: none;
+}
+
+.required-border {
+    width: 100%;
+    opacity: 1 !important;
+    cursor: initial;
+    border-color: #4c8eff;
+}
+
+.optional-border {
+    width: 100%;
+    opacity: 1 !important;
+    cursor: initial;
+}
