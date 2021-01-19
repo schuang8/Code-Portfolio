@@ -26,7 +26,6 @@ func (p *program) Start(s service.Service) error {
 	env := os.Environ()
 
 	binPath := filepath.Join(runDir, "services", "windows-service.exe")
-	configPath := filepath.Join(os.ExpandEnv("./Test Service/"), constant.ConfigYaml)
 	p.serviceCmds[0] = exec.Command(binPath, "serve")
 
 	for _, cmd := range p.serviceCmds {
