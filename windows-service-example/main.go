@@ -24,7 +24,6 @@ func (p *program) Start(s service.Service) error {
 	runDir := filepath.Dir(runPath)
 
 	env := os.Environ()
-	env = append(env, "SHARED_SECRET="+sharedSecret)
 
 	binPath := filepath.Join(runDir, "services", "windows-service.exe")
 	configPath := filepath.Join(os.ExpandEnv("./Test Service/"), constant.ConfigYaml)
